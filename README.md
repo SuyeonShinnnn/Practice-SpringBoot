@@ -67,3 +67,12 @@
 
   - **@Component**    
   @Component 에노테이션이 있으면 스프링 빈으로 자동 등록
+
+---
+
+### 회원 관리 예제 - 웹 MVC 개발
+
+- **@GetMapping(value = "/hello/new")**   
+  value 경로로 이동
+- **return "redirect:/"**    
+  이전 경로로 되돌아 감

@@ -1,0 +1,3 @@
+[submodule "hello-spring/Study-SpringBoot-Private"]
+	path = hello-spring/Study-SpringBoot-Private
+	url = https://github.com/SuyeonShinnnn/Study-SpringBoot-Private.git

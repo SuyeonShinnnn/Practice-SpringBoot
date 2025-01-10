@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>HomePage</title>
+</head>
+<body>
+<h1>Welcome
+  <!--th 접두사를 사용하여 컨트롤러가 전송한 값 사용-->
+<span th:style="'color:' + ${color}"
+      th:text="${username}"></span>!</h1>
+</body>
+</html>

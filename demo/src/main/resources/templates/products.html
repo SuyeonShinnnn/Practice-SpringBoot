@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+  <h1>Products</h1>
+  <h2>View products</h2>
+  <table>
+    <tr>
+      <th>PRODUCT NAME</th>
+      <th>PRODUCT PRICE</th>
+    </tr>
+    <tr th:each="p: ${products}">
+      <td th:text="${p.name}"></td>
+      <td th:text="${p.price}"></td>
+    </tr>
+  </table>
+  <h2>Add a product</h2>
+
+  <!-- submit 되었을 때, /product 경로에 대해 POST 요청 -->
+  <form action="/products" method="post">
+
+    <!--
+    * input 컴포넌트
+    * 사용자는 제품 이름 및 가격을 설정할 수 있으며, 컴포넌트 값은 키(name, price)와 함께 요청 매개변수로 전송
+    -->
+    Name: <input type="text" name="name"><br />
+    Price: <input \\type="number" step="any" name="price"><br />
+
+    <button type="submit">Add product</button>
+  </form>
+</body>
+</html>

@@ -2,6 +2,7 @@ package com.example.demo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.annotation.RequestScope;
@@ -32,6 +33,18 @@ public class MainController {
             Model page){
 
         page.addAttribute("username", username);
+        page.addAttribute("color", color);
+
+        return "home.html";
+    }
+
+    // 경로 변수
+    // 예시 -> /home/purple
+    @RequestMapping("/home/{color}")
+    public String homeColor(
+            @PathVariable String color, Model page
+    ){
+        page.addAttribute("username", "Katy");
         page.addAttribute("color", color);
 
         return "home.html";

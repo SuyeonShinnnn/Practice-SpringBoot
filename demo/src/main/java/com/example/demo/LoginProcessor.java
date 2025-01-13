@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.service.LoggedUserManagementService;
+import com.example.demo.service.LoginCountService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
@@ -9,11 +10,14 @@ import org.springframework.web.context.annotation.RequestScope;
 public class LoginProcessor {
 
     private final LoggedUserManagementService loggedUserManagementService;
+    private final LoginCountService loginCountService;
     private String username;
     private String password;
 
-    public LoginProcessor(LoggedUserManagementService loggedUserManagementService){
+    public LoginProcessor(LoggedUserManagementService loggedUserManagementService,
+                          LoginCountService loginCountervice){
         this.loggedUserManagementService = loggedUserManagementService;
+        this.loginCountService = loginCountervice;
     }
 
     public String getUsername() {
@@ -33,8 +37,11 @@ public class LoginProcessor {
     }
 
     public boolean login(){
+        loginCountService.increment();
+
         String username = this.getUsername();
         String password = this.getPassword();
+
         boolean loginResult = false;
 
         if("natalie".equals(username) && "password".equals(password)){
